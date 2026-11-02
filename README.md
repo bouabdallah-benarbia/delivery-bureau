@@ -21,4 +21,13 @@ The website never calls the API, so the API token is not in the site.
 node tools/build-data.js
 ```
 
-The script prints any bureau it could not match to a city in the CSV, and any CSV city that has no bureau in the API.
+   It prints any bureau it could not match to a city in the CSV, and any CSV city that has no bureau in the API.
+
+4. Commit, then publish the `site/` folder to GitHub Pages:
+
+```bash
+git push origin main
+git subtree push --prefix site origin gh-pages
+```
+
+Live site: https://bouabdallah-benarbia.github.io/delivery-bureau/
