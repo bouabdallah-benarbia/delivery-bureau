@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>دليل مكاتب التوصيل</title>
+  <meta name="description" content="ابحث عن مكاتب التوصيل في جميع ولايات الجزائر.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1 class="brand">دليل مكاتب التوصيل</h1>
+      <p class="tagline">ابحث عن مكاتب التوصيل في جميع ولايات الجزائر.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="search-card" aria-label="البحث">
+      <label for="search" class="search-label">ابحث عن ولاية أو بلدية</label>
+      <div class="search-box" id="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="search" type="search" autocomplete="off" spellcheck="false" dir="auto"
+               placeholder="مثال: وهران، Oran، Bir El Djir، 16…"
+               role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="suggestions">
+        <ul id="suggestions" class="suggestions" role="listbox" hidden></ul>
+      </div>
+      <div class="browse">
+        <label for="wilaya-select">أو اختر ولاية:</label>
+        <select id="wilaya-select"><option value="">جميع الولايات (58)…</option></select>
+      </div>
+    </section>
+
+    <div id="status" class="status" role="status"></div>
+
+    <div id="results" hidden>
+      <!-- القسم أ: أسماء المدن فقط -->
+      <section class="panel" id="section-cities" aria-labelledby="cities-title">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">القسم أ · المدن المتوفرة</p>
+            <h2 id="cities-title"></h2>
+            <p class="muted" id="cities-count"></p>
+          </div>
+          <button type="button" class="btn-primary" id="copy-btn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>
+            نسخ جميع المدن
+          </button>
+        </div>
+        <ul class="city-list" id="city-list"></ul>
+        <p class="tarifs muted" id="tarifs"></p>
+      </section>
+
+      <!-- القسم ب: مواقع المكاتب -->
+      <section class="panel" id="section-bureaus" aria-labelledby="bureaus-title">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">القسم ب · مواقع المكاتب</p>
+            <h2 id="bureaus-title"></h2>
+          </div>
+          <button type="button" class="btn-primary" id="copy-locations-btn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>
+            نسخ جميع المواقع
+          </button>
+        </div>
+        <div id="bureau-groups" class="bureau-groups"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer wrap">
+    <p class="muted" id="data-note"></p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="data.js"></script>
+  <script src="search.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
